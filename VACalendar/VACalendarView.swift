@@ -267,6 +267,11 @@ extension VACalendarView: UIScrollViewDelegate {
         drawVisibleMonth(with: scrollView.contentOffset)
     }
     
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        guard let monthView = getMonthView(with: scrollView.contentOffset) else { return }
+        monthDelegate?.monthDidEndScrolling(monthView.month.date)
+    }
+    
 }
 
 extension VACalendarView: VACalendarDelegate {
