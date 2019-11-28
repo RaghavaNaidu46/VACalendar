@@ -115,4 +115,7 @@ extension VAMonthHeaderView: VACalendarMonthDelegate {
         monthLabel.text = dateFormatter.string(from: currentMonth)
     }
     
+    public func monthDidEndScrolling(_ currentMonth: Date) {
+        monthDelegate?.monthDidEndScrolling(currentMonth)
+    }
 }
