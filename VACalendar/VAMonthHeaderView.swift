@@ -47,6 +47,7 @@ public class VAMonthHeaderView: UIView {
     }
     
     public weak var delegate: VAMonthHeaderViewDelegate?
+    public weak var monthDelegate: VACalendarMonthDelegate?
     
     private var dateFormatter = DateFormatter()
     private let monthLabel = UILabel()
