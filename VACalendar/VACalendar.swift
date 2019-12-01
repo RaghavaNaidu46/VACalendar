@@ -43,8 +43,8 @@ public class VACalendar {
             selectedDays = [day]
         }
         
-        let startDate = startDate ?? calendar.date(byAdding: .year, value: -1, to: Date())!
-        let endDate = endDate ?? calendar.date(byAdding: .year, value: 1, to: Date())!
+        let startDate = startDate ?? calendar.date(byAdding: .year, value: -4, to: Date())!
+        let endDate = endDate ?? calendar.date(byAdding: .year, value: 4, to: Date())!
         months = generateMonths(from: startDate, endDate: endDate)
     }
     
