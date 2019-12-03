@@ -78,8 +78,8 @@ class VADayView: UIView {
         dateLabel.frame = CGRect(
             x: 0,
             y: 0,
-            width: side,
-            height: side
+            width: side - 5,
+            height: side - 5
         )
         dateLabel.center = CGPoint(x: frame.width / 2, y: frame.height / 2)
 
