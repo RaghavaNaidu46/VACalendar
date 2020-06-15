@@ -72,8 +72,8 @@ public class VAMonthHeaderView: UIView {
         let buttonWidth: CGFloat = 50.0
         monthLabel.frame = CGRect(x: 0, y: 0, width: appearance.monthTextWidth, height: frame.height)
         monthLabel.center.x = center.x
-        previousButton.frame = CGRect(x: monthLabel.frame.minX - buttonWidth, y: 0, width: buttonWidth, height: frame.height)
-        nextButton.frame = CGRect(x: monthLabel.frame.maxX, y: 0, width: buttonWidth, height: frame.height)
+        previousButton.frame = CGRect(x: 0, y: 0, width: buttonWidth, height: frame.height)
+        nextButton.frame = CGRect(x: self.frame.width - nextButton.frame.size.width, y: 0, width: buttonWidth, height: frame.height)
     }
     
     private func setupView() {
