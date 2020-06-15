@@ -16,6 +16,7 @@ public protocol VADayViewAppearanceDelegate: class {
     @objc optional func backgroundColor(for state: VADayState) -> UIColor
     @objc optional func borderWidth(for state: VADayState) -> CGFloat
     @objc optional func borderColor(for state: VADayState) -> UIColor
+    @objc optional func todayBorderColor() -> UIColor
     @objc optional func dotBottomVerticalOffset(for state: VADayState) -> CGFloat
     @objc optional func shape() -> VADayShape
     // percent of the selected area to be painted
