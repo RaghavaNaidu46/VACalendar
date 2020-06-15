@@ -44,8 +44,8 @@ class VADayView: UIView {
         return stack
     }
     
-    private let dotSpacing: CGFloat = 5
-    private let dotSize: CGFloat = 5
+    private let dotSpacing: CGFloat = 4
+    private let dotSize: CGFloat = 4
     private var supplementaryViews = [UIView]()
     private let dateLabel = UILabel()
     
