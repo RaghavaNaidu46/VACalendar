@@ -103,10 +103,21 @@ class VADayView: UIView {
         backgroundColor = dayViewAppearanceDelegate?.backgroundColor?(for: state) ?? backgroundColor
         layer.borderColor = dayViewAppearanceDelegate?.borderColor?(for: state).cgColor ?? layer.borderColor
         layer.borderWidth = dayViewAppearanceDelegate?.borderWidth?(for: state) ?? dateLabel.layer.borderWidth
+         
+        let date = VAFormatters.dateOnlyFormatter.string(from: day.date)
+        let todayDate = VAFormatters.dateOnlyFormatter.string(from: Date())
         
-        dateLabel.textColor = dayViewAppearanceDelegate?.textColor?(for: state) ?? dateLabel.textColor
         dateLabel.backgroundColor = dayViewAppearanceDelegate?.textBackgroundColor?(for: state) ?? dateLabel.backgroundColor
+        dateLabel.textColor = dayViewAppearanceDelegate?.textColor?(for: state) ?? dateLabel.textColor
         
+        if (dayViewAppearanceDelegate?.shape?() == .circle && state != .selected && date == todayDate) {
+            layer.borderColor = UIColor.clear.cgColor
+            dateLabel.clipsToBounds = true
+            dateLabel.layer.cornerRadius = dateLabel.frame.height / 2
+            dateLabel.layer.borderWidth = 1
+            dateLabel.layer.borderColor = dayViewAppearanceDelegate?.todayBorderColor?().cgColor
+            dateLabel.backgroundColor = .clear
+        }
         updateSupplementaryViews()
     }
     
