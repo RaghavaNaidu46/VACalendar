@@ -263,13 +263,13 @@ extension VACalendarView: UIScrollViewDelegate {
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let monthView = getMonthView(with: scrollView.contentOffset) else { return }
         
-        monthDelegate?.monthDidChange(monthView.month.date)
+        monthDelegate?.monthDidChange(monthView.month.date, monthView.numberOfWeeks)
         drawVisibleMonth(with: scrollView.contentOffset)
     }
     
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         guard let monthView = getMonthView(with: scrollView.contentOffset) else { return }
-        monthDelegate?.monthDidEndScrolling(monthView.month.date)
+        monthDelegate?.monthDidEndScrolling(monthView.month.date, monthView.numberOfWeeks)
     }
     
 }
