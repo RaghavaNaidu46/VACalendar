@@ -111,11 +111,12 @@ public class VAMonthHeaderView: UIView {
 
 extension VAMonthHeaderView: VACalendarMonthDelegate {
     
-    public func monthDidChange(_ currentMonth: Date) {
+    public func monthDidChange(_ currentMonth: Date, _ numberOfWeeks:Int) {
         monthLabel.text = dateFormatter.string(from: currentMonth)
     }
     
-    public func monthDidEndScrolling(_ currentMonth: Date) {
-        monthDelegate?.monthDidEndScrolling(currentMonth)
+    public func monthDidEndScrolling(_ currentMonth: Date, _ numberOfWeeks:Int) {
+        monthDelegate?.monthDidEndScrolling(currentMonth, numberOfWeeks)
     }
 }
+
