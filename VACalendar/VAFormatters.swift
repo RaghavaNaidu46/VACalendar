@@ -24,7 +24,7 @@ struct VAFormatters {
     
         static let dateOnlyFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "LLLL-MM-d"
+        formatter.dateFormat = "LLLL-yyyy-d"
         return formatter
     }()
     
