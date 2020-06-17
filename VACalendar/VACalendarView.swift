@@ -7,6 +7,7 @@
 //
 
 import UIKit
+public typealias VACompletion = (_ numberOfWeeks:Int) -> Void
 
 public enum VASelectionStyle {
     case single, multi
@@ -82,7 +83,7 @@ public class VACalendarView: UIScrollView {
         scrollToStartDate()
     }
     
-    public func nextMonth() {
+    public func nextMonth(_ completion: VACompletion) {
         switch scrollDirection {
         case .horizontal:
             let x = contentOffset.x + frame.width
@@ -92,9 +93,10 @@ public class VACalendarView: UIScrollView {
             drawVisibleMonth(with: contentOffset)
         case .vertical: break
         }
+        completion(currentMonth?.numberOfWeeks ?? 5)
     }
     
-    public func previousMonth() {
+    public func previousMonth(_ completion: VACompletion) {
         switch scrollDirection {
         case .horizontal:
             let x = contentOffset.x - frame.width
@@ -104,6 +106,7 @@ public class VACalendarView: UIScrollView {
             drawVisibleMonth(with: contentOffset)
         case .vertical: break
         }
+        completion(currentMonth?.numberOfWeeks ?? 5)
     }
     
     public func selectDates(_ dates: [Date]) {

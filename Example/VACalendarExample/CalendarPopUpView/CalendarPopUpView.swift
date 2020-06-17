@@ -114,11 +114,15 @@ class CalendarPopUpView: UIView {
 extension CalendarPopUpView: VAMonthHeaderViewDelegate {
     
     func didTapNextMonth() {
-        calendarView.nextMonth()
+        calendarView.nextMonth{ (numberOfWeeks) in
+            
+        }
     }
     
     func didTapPreviousMonth() {
-        calendarView.previousMonth()
+        calendarView.previousMonth{ (numberOfWeeks) in
+            
+        }
     }
     
 }

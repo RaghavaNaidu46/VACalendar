@@ -86,11 +86,15 @@ final class HorizontalCalendarController: UIViewController {
 extension HorizontalCalendarController: VAMonthHeaderViewDelegate {
     
     func didTapNextMonth() {
-        calendarView.nextMonth()
+        calendarView.nextMonth { (numberOfWeeks) in
+            
+        }
     }
     
     func didTapPreviousMonth() {
-        calendarView.previousMonth()
+        calendarView.previousMonth{ (numberOfWeeks) in
+            
+        }
     }
     
 }
