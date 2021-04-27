@@ -109,6 +109,19 @@ public class VACalendarView: UIScrollView {
         completion(currentMonth?.numberOfWeeks ?? 5)
     }
     
+    public func presentMonth(_ completion: VACompletion) {
+        switch scrollDirection {
+        case .horizontal:
+            let x = contentOffset.x + frame.width
+            guard x < contentSize.width else { return }
+            
+            setContentOffset(CGPoint(x: x, y: 0), animated: false)
+            drawVisibleMonth(with: contentOffset)
+        case .vertical: break
+        }
+        completion(currentMonth?.numberOfWeeks ?? 5)
+    }
+    
     public func selectDates(_ dates: [Date]) {
         calendar.deselectAll()
         calendar.selectDates(dates)
@@ -214,7 +227,7 @@ public class VACalendarView: UIScrollView {
         }
     }
     
-    public func scrollToTodayDate() {
+    public func scrollToTodayDate(_ completion: VACompletion) {
         let startMonth = monthViews.first(where: { $0.month.dateInThisMonth(Date()) })
         var offset: CGPoint = startMonth?.frame.origin ?? .zero
         
@@ -227,6 +240,7 @@ public class VACalendarView: UIScrollView {
             offset.x += weekOffset - inset
             setContentOffset(offset, animated: false)
         }
+        completion(currentMonth?.numberOfWeeks ?? 5)
     }
     
     private func getMonthView(with offset: CGPoint) -> VAMonthView? {
